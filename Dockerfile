@@ -1,6 +1,7 @@
 FROM fsword/docker-alpine-glibc:3.4
 
-RUN apk add -U build-base nano bash zlib-dev && \
+RUN apk add -U build-base ca-certificates nano bash zlib-dev && \
+  update-ca-certificates && \
   apk add -U ruby-dev ruby-io-console ruby-rdoc ruby-irb ruby-bigdecimal && \
   rm -rf /var/cache/apk/*
 
