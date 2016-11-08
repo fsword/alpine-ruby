@@ -1,4 +1,4 @@
-FROM fsword/docker-alpine-glibc:3.4
+FROM frolvlad/alpine-glibc:alpine-3.4
 
 RUN apk add -U build-base ca-certificates nano bash zlib-dev && \
   update-ca-certificates && \
@@ -14,7 +14,6 @@ RUN mkdir -p /usr/src/app /usr/local/bundle
 WORKDIR /usr/src/app
 
 RUN gem install bundler
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 
 CMD ["irb"]
 
